@@ -1,0 +1,21 @@
+﻿<h4>Browser DOM Events</h4>
+
+@*Input Events*@
+<input type="checkbox" checked @onchange=@((eventArgs) => { ToDoOnCheckChange(eventArgs);}) />
+
+
+
+@code {
+
+    #region Input Events
+    private void ToDoOnCheckChange(ChangeEventArgs eventArgs)
+    {
+        Console.WriteLine(eventArgs.Value);
+    }
+    #endregion
+}
+
+
+@*https://blazor-university.com/components/component-events/browser-dom-events/*@
+@*https://chrissainty.com/3-ways-to-communicate-between-components-in-blazor/*@
+@*https://www.youtube.com/watch?v=VMqlUibrc7Y*@

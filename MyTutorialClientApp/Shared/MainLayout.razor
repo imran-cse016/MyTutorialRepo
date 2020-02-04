@@ -1,0 +1,127 @@
+﻿@inherits LayoutComponentBase
+
+<div class="sidebar">
+    <SideNavMenu />
+</div>
+
+<div class="main">
+
+
+
+    @*<div class="top-row px-4" style="background-color:whitesmoke;">*@
+
+    <ul class="ul" style="background-color:#5B8899">
+        <li class="li"><a href="http://blazor.net" target="_blank">Blazor</a></li>
+        <li class="li"><a href="http://blazor.net" target="_blank">ASP.NET Core</a></li>
+        <li style="float:right"><a class="active" href="#about" style="background-color:darkslategray;">Home</a></li>
+    </ul>
+
+    @*</div>*@
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+
+
+<style>
+
+    /*Menu Item Start*/
+    .ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #3A0647;
+    }
+
+    .li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+    .active {
+        background-color: #4CAF50;
+    }
+    /*Menu Item End*/
+
+    /*Previous Next Start*/
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    .previous {
+        background-color: #5B8899;
+        color: black;
+    }
+
+    .next {
+        background-color: #5B8899;
+        color: black;
+        float: right;
+    }
+
+    /*Previous Next End*/
+
+    /*Top Headder Start*/
+
+    .main .top-row {
+        position: unset;
+        top: 0;
+    }
+    /*Top Headder End*/
+
+
+    /*Headear Blazor Turotial Start*/
+    .h1-header {
+        position: relative;
+        font-size: 25px;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        .h1-header:before, h1:after {
+            position: absolute;
+            top: 51%;
+            overflow: hidden;
+            width: 50%;
+            height: 1px;
+            content: '\a0';
+            background-color: #5B8899;
+        }
+
+        .h1-header:before {
+            margin-left: -50%;
+            text-align: right;
+        }
+
+    .color {
+        background-color: #ccc;
+    }
+    /*Headear Blazor Turotial End*/
+
+    .top-row {
+        height: unset;
+    }
+</style>

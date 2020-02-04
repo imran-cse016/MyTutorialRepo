@@ -1,0 +1,40 @@
+﻿@page "/parent-component"
+@using Model
+
+<h4>Notification waiting from child component - @Notified</h4>
+
+<h3>Total Done - @ToDoItems.Where(xx => xx.IsDone).Count() </h3>
+
+<ChildComponent ToDoItems="ToDoItems" ToDoOnCheckChangeCallback="UpdateDoneItems"></ChildComponent>
+
+@code {
+
+    public string Notified { get; set; } = "Waiting";
+
+    private List<ToDoModel> ToDoItems { get; set; } = new List<ToDoModel>();
+
+
+    protected override void OnInitialized()
+    {
+        ToDoItems.Add(new ToDoModel() { Title = "Coffee", IsDone = true });
+        ToDoItems.Add(new ToDoModel() { Title = "Breakfast", IsDone = false });
+        ToDoItems.Add(new ToDoModel() { Title = "Lunch", IsDone = false });
+        ToDoItems.Add(new ToDoModel() { Title = "Tea", IsDone = false });
+
+    }
+
+    private void UpdateDoneItems(ToDoModel toDoModel)
+    {
+        Console.WriteLine("UpdateDoneItems");
+        // ToDoItems2 = toDoModels;
+
+        if (toDoModel.IsDone)
+        {
+            Notified = " " + toDoModel.Title + " checked from child";
+        }
+        else
+        {
+            Notified = " " + toDoModel.Title + " un-checked from child";
+        }
+    }
+}

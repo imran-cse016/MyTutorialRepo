@@ -1,0 +1,111 @@
+﻿
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">My Tutorial</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="" aria-hidden="true"></span> Blazor Tutorials
+            </NavLink>
+        </li>
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="overview">
+                <span class="" aria-hidden="true"></span> Overview
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="component">
+                <span class="" aria-hidden="true"></span> Component
+            </NavLink>
+        </li>
+
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="data-binding">
+                <span class="" aria-hidden="true"></span> Data Binding
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="layouts">
+                <span class="" aria-hidden="true"></span> Layouts
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="routing">
+                <span class="" aria-hidden="true"></span> Routing
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="dependency-injection">
+                <span class="" aria-hidden="true"></span> Dependency Injection
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="forms-and-validation">
+                <span class="" aria-hidden="true"></span> Forms And Validation
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="lifecycle">
+                <span class="" aria-hidden="true"></span> Lifecycle
+            </NavLink>
+        </li>
+
+        <li class="nav-item li-SideNavMenu">
+            <NavLink class="nav-link" href="javascript-interop">
+                <span class="" aria-hidden="true"></span> Javascript Interop
+            </NavLink>
+        </li>
+
+
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
+
+
+<style>
+
+    .li-SideNavMenu {
+        border-bottom: 1px solid #5f5b5b61 !important;
+    }
+
+    .sidebar .nav-item:first-of-type {
+        padding-top: unset;
+    }
+
+    .sidebar .nav-item {
+        padding-bottom: unset;
+    }
+
+    .sidebar {
+        width: unset;
+        background-image: none;
+        background-color: lightslategray !important;
+    }
+
+        .sidebar .nav-item a {
+            color: black;
+        }
+</style>
+

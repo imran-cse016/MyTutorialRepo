@@ -1,0 +1,84 @@
+﻿<div class="my-component">
+    This Blazor component is defined in the <strong>MyTutorialRazorClassLibrary</strong> package.
+
+    <h3>
+        I am component from exteral library
+    </h3>
+
+    <span class="razorClassLibrary-span">
+        Counter increment from razor class library between 10 to 100 - @counterPropertyFromRazorClassLibrary
+    </span>
+
+    btnIncrementIsEnabled - @btnIncrementIsEnabled
+    btnDecrementIsEnabled - @btnDecrementIsEnabled
+
+    <button class="btn btn-primary" disabled="@(btnIncrementIsEnabled ? false : true)" @onclick="OperationFromRazorClassLibraryIncrement">Increment</button>
+
+    <button class="btn btn-primary" disabled="@(btnDecrementIsEnabled ? false : true)" @onclick="OperationFromRazorClassLibraryDecrement">Decrement</button>
+
+
+</div>
+
+
+@code{
+    public int counterPropertyFromRazorClassLibrary { get; set; } = 10;
+    public bool btnIncrementIsEnabled = false;
+    public bool btnDecrementIsEnabled = false;
+
+
+    protected override void OnInitialized()
+    {
+
+        Console.WriteLine("OnInitialized");
+
+
+        if (counterPropertyFromRazorClassLibrary == 10)
+        {
+            btnIncrementIsEnabled = true;
+
+        }
+
+        if (counterPropertyFromRazorClassLibrary == 10)
+        {
+            btnDecrementIsEnabled = false;
+        }
+
+    }
+
+
+    void OperationFromRazorClassLibraryIncrement()
+    {
+        if (counterPropertyFromRazorClassLibrary < 100)
+        {
+            counterPropertyFromRazorClassLibrary = counterPropertyFromRazorClassLibrary + 10;
+            btnDecrementIsEnabled = true;
+        }
+
+        if (counterPropertyFromRazorClassLibrary == 100)
+        {
+            btnIncrementIsEnabled = false;
+        }
+
+
+
+    }
+
+    void OperationFromRazorClassLibraryDecrement()
+    {
+        if (counterPropertyFromRazorClassLibrary > 10)
+        {
+            counterPropertyFromRazorClassLibrary = counterPropertyFromRazorClassLibrary - 10;
+            btnIncrementIsEnabled = true;
+
+        }
+
+        if (counterPropertyFromRazorClassLibrary == 10)
+        {
+            btnIncrementIsEnabled = true;
+            btnDecrementIsEnabled = false;
+
+        }
+
+    }
+
+}

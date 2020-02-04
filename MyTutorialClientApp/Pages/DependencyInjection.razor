@@ -1,0 +1,85 @@
+﻿@page "/dependency-injection"
+
+<div class="color">
+    <h1 class="h1-header">Blazor Dependency Injection</h1>
+</div>
+
+<br />
+
+
+<div>
+    <a href="/databinding" class="previous round">&#8249;</a>
+    <a href="#" class="next round">&#8250;</a>
+</div>
+
+<hr />
+
+<p>
+
+    Blazor framework supports dependency injection (DI) like other frameworks (Angular, etc.) Apps can use built-in services by injecting them into components. Apps can also create and register custom services and make them available throughout the app via DI.
+    <br />
+    <br />
+    Dependency Injection (DI) is a technique for accessing services configured in a central location.
+    <br />
+    Default services are automatically added to the app's service collection like HttpClient, IJSRuntime, NavigationManager
+</p>
+
+<br />
+
+<p>
+    <img src="/image/DependencyInjection.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+</p>
+
+
+<div>
+    <a href="/databinding" class="previous round">&#8249;</a>
+    <a href="#" class="next round">&#8250;</a>
+</div>
+
+<hr />
+
+<h5>Summary</h5>
+
+<div class="alert alert-secondary mt-4" role="alert">
+
+    <p>
+        <ul style="list-style-type: none;">
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Blazor has built-in support for dependency injection (DI).</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Blazor applications can use built-in services by having them injected into components.</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Blazor apps can also define custom services and make them available via DI.</li>
+        </ul>
+    </p>
+
+</div>
+
+
+<style>
+    /*Headear Blazor Turotial Start*/
+    h1 {
+        position: relative;
+        font-size: 30px;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        h1:before, h1:after {
+            position: absolute;
+            top: 51%;
+            overflow: hidden;
+            width: 50%;
+            height: 1px;
+            content: '\a0';
+            background-color: red;
+        }
+
+        h1:before {
+            margin-left: -50%;
+            text-align: right;
+        }
+
+    .color {
+        background-color: #ccc;
+    }
+    /*Headear Blazor Turotial End*/
+</style>

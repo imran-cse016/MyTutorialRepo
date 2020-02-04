@@ -1,0 +1,55 @@
+﻿@using Model
+
+<h5>Child Component : To Do items passed from parent component</h5>
+
+<ul>
+    @foreach (var item in ToDoItems)
+    {
+        <li>
+            @if (item.IsDone)
+            {
+                <input type="checkbox" checked @onchange=@((eventArgs) => { ToDoOnCheckChange(item, eventArgs);}) />
+            }
+            else
+            {
+                <input type="checkbox" @onchange=@((eventArgs) => { ToDoOnCheckChange(item, eventArgs);}) />
+
+            }
+
+            <lable>@item.Title</lable>
+        </li>
+    }
+</ul>
+
+@Check
+
+@code {
+
+    public int Check { get; set; } = 0;
+
+
+    [Parameter]
+    public List<ToDoModel> ToDoItems { get; set; } = new List<ToDoModel>();
+
+
+    [Parameter]
+    public EventCallback<ToDoModel> ToDoOnCheckChangeCallback { get; set; }
+
+    private async Task ToDoOnCheckChange(ToDoModel toDoModel, ChangeEventArgs eventArgs)
+    {
+        Check++;
+
+        Console.WriteLine(eventArgs.Value);
+        if ((bool)eventArgs.Value)
+        {
+            ToDoItems.FirstOrDefault(xx => xx.Title == toDoModel.Title).IsDone = true;
+        }
+        else
+        {
+            ToDoItems.FirstOrDefault(xx => xx.Title == toDoModel.Title).IsDone = false;
+        }
+        await ToDoOnCheckChangeCallback.InvokeAsync(toDoModel);
+
+    }
+
+}

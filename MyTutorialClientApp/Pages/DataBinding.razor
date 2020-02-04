@@ -1,0 +1,171 @@
+﻿@page "/data-binding"
+
+<div class="color">
+    <h1 class="h1-header">Blazor Data Binding</h1>
+</div>
+
+<br />
+
+<div>
+    <a href="/overview" class="previous round">&#8249;</a>
+    <a href="/dependency-injection" class="next round">&#8250;</a>
+</div>
+
+<hr />
+
+<p>
+    Binding data is a fundamental task in single page applications (SPAs). At some point every application needs to either display data (e.g. labels) or receive data (e.g. forms).
+</p>
+
+<p>
+    <ul>
+        <li> Data binding is one of the most powerful features of software development technologies.</li>
+        <li> It is the connection bridge between View and the business logic of the application.</li>
+    </ul>
+</p>
+
+<p>
+    Blazor has 3 different ways of binding data on the client-side:
+    <br />
+    <ul>
+        <li> One-way Data Binding</li>
+        <li> Two-way Data Binding</li>
+        <li> Event Binding</li>
+    </ul>
+</p>
+
+<hr />
+
+<br />
+
+<h5>One-way Data Binding</h5>
+
+
+<p>
+    This is the common data binding we’ll see in many of the client-side frameworks.
+    One-way data binding in Blazor is the process of rendering the view as per the value in the property or a simple variable or a model.
+    In one-way binding, we need to pass property or variable name along with @@ i.e. @@Name (here Name is either the property or variable).
+    <br />
+
+    It’s all about moving data in one direction from the “Model” to HTML elements. In Blazor’s case, the “Model” refers to variables. You just need to add the @@ symbol to your variable name (for example, @@yourVariable) and you’re done!
+</p>
+
+<p>
+    <img src="/image/OneWayDataBinding.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+</p>
+<hr />
+
+<br />
+
+
+<h5>Two-way Data Binding</h5>
+
+<p>
+    In two-way data binding, any changes in the Model gets reflected in the View and similarly any changes in the View gets reflected in the View automatically.
+    <br />
+    Two-way data binding is achieved with the bind attribute. You specify the variable you want to bind inside the bind attribute (for example, <code>&lt;input bind="@@yourVariable" /&gt;</code>).
+    Blazor will automatically detect changes on your HTML element and will update the variable accordingly and viceversa.
+</p>
+
+<p>
+    <img src="/image/TwoWayDataBinding.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+</p>
+
+<hr />
+
+<br />
+
+<h5>Event Binding</h5>
+
+
+<p>
+    With Blazor you can take advantage of event-driven programming by using event binding. This is achieved with HTML event attributes like, onclick, onchange, and onkeypress. You must specify the method you want to call on the event attribute (for example, onclick="@@YourMethod").
+    <br />
+    If you need to pass arguments to your method, you must use a Lambda expression (for example, onclick="@@(() => YourMethod(someArgument, anotherArgument))").
+</p>
+
+<hr />
+
+
+<div>
+    <a href="/overview" class="previous round">&#8249;</a>
+    <a href="/dependency-injection" class="next round">&#8250;</a>
+</div>
+
+<hr />
+
+<h5>Summary</h5>
+
+<div class="alert alert-secondary mt-4" role="alert">
+
+    <p>
+        <ul style="list-style-type: none;">
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> When the data changes, the View automatically reflects the updated data values.</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Components are implemented in Razor component files (.razor) using a combination of C# and HTML markup.</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Components in blazor are formally referred to as Razor components.</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Components can be shared and distributed among other projects.</li>
+            <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> ASP.net MVC offer Easy and frictionless testability with Full control over your HTML &amp; URLs</li>
+        </ul>
+    </p>
+
+</div>
+
+
+<button class="btn btn-primary" @onclick=@btnClicked>Click</button>
+@str
+
+<button @onclick=@(() => Console.WriteLine("Hello World From Lambda"))>Lambda</button>
+
+
+@code {
+
+    string str = "Not Clicked!";
+
+    public void btnClicked()
+    {
+        Console.WriteLine("Hello World");
+        str = str == "Not Clicked!" ? "Now clicked!" : "Not Clicked!";
+    }
+}
+
+
+@*Being a developer, you must have realized that applications in real life are just a way to capture data and show them in the desired way to the end user so that they can take some intellectual decisions. Well, today’s applications are much more than this but what I am trying to say is once the data is captured, it needs to be shown in the application as per the user requirement.*@
+@*The attribute for event in an HTML element starts with “on” and follows the format on*@
+@*Data binding is one of the most powerful features of software development technologies. Data binding is the connection bridge between View and the business logic (View Model) of the application.*@
+
+@*https://blazor-tutorial.net/data-binding*@
+@*https://blazor-tutorial.net*@
+@*https://www.dotnettricks.com/learn/blazor/blazor-data-binding-one-way-two-way-and-event-binding*@
+@*https://www.c-sharpcorner.com/article/data-binding-in-blazor/*@
+@*https://chrissainty.com/a-detailed-look-at-data-binding-in-blazor/*@
+
+<style>
+    /*Headear Blazor Turotial Start*/
+    h1 {
+        position: relative;
+        font-size: 30px;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        h1:before, h1:after {
+            position: absolute;
+            top: 51%;
+            overflow: hidden;
+            width: 50%;
+            height: 1px;
+            content: '\a0';
+            background-color: red;
+        }
+
+        h1:before {
+            margin-left: -50%;
+            text-align: right;
+        }
+
+    .color {
+        background-color: #ccc;
+    }
+    /*Headear Blazor Turotial End*/
+</style>

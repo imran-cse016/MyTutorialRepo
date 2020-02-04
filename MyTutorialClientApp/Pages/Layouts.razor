@@ -1,0 +1,77 @@
+﻿@page "/layouts"
+
+<div class="color">
+    <h1 class="h1-header">Blazor Layouts</h1>
+</div>
+
+<br />
+
+<div>
+    <a href="/overview" class="previous round">&#8249;</a>
+    <a href="/data-binding" class="next round">&#8250;</a>
+</div>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-sm-7 col-lg-7 col-md-7">
+
+        <p>
+            Some parts of the pages remain the same throughout the application, such as menus, headers, footers, and so on. However, we cannot write code for the common part in all the pages.
+            It becomes hard to maintain and probably inconsistent over time.
+            Therefore, to solve this issue in Blazor, we use layouts
+        </p>
+
+        <p>
+            Technically, a layout is just another component.To turn a component into a layout, the component:
+        </p>
+
+        <ul>
+            <li>
+                The layout component inherits from LayoutComponentBase.
+            </li>
+            <li>
+                It adds a property @@Body to the component which contains the content to be rendered inside the layout.
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="col-sm-5 col-lg-5 col-md-5">
+        <img src="/image/Layout1.png" role="presentation" class="img-fluid img-fluid-center img-bordered" style="border:thick" />
+    </div>
+
+
+    @*<div class="col-sm-12 col-lg-12 col-md-12">
+
+            <p>
+                Some parts of the pages remain the same throughout the application, such as menus, headers, footers, and so on. However, we cannot write code for the common part in all the pages.
+                It becomes hard to maintain and probably inconsistent over time.
+                Therefore, to solve this issue in Blazor, we use layouts
+            </p>
+
+            <p>
+                Technically, a layout is just another component.To turn a component into a layout, the component:
+            </p>
+
+            <ul>
+                <li>
+                    The layout component inherits from LayoutComponentBase.
+                </li>
+                <li>
+                    It adds a property @@Body to the component which contains the content to be rendered inside the layout.
+                </li>
+            </ul>
+
+
+        </div>*@
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <p>
+            <img src="/image/BlazorLayout.png" role="presentation" class="img-fluid img-fluid-center img-bordered" style="border:thick" />
+        </p>
+    </div>
+
+</div>

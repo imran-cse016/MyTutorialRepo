@@ -1,0 +1,60 @@
+﻿@page "/consume-rest-api"
+@inject HttpClient Http
+
+<button class="btn btn-primary" @onclick=@(async () => await PrintWebApiResponse())>Print Web API Response</button>
+
+<button class="btn btn-primary" @onclick=@(async () => await LoadWebApiResponse())>Load Web API Response</button>
+
+
+
+@if (ToDos.Count > 0)
+{
+    <table>
+
+        <tr>
+            <td>Title</td>
+        </tr>
+
+        @foreach (var item in ToDos)
+        {
+            <tr>
+                <td>@item.title</td>
+            </tr>
+        }
+    </table>
+
+}
+else
+{
+
+    <label> Loading... </label>
+
+
+}
+
+@code {
+
+    private List<ToDo> ToDos = new List<ToDo>();
+
+
+    private async Task PrintWebApiResponse()
+    {
+        var response = await Http.GetStringAsync("https://jsonplaceholder.typicode.com/todos/");
+        Console.WriteLine(response);
+
+    }
+
+    private async Task LoadWebApiResponse()
+    {
+        ToDos = await Http.GetJsonAsync<List<ToDo>>("https://jsonplaceholder.typicode.com/todos/");
+        Console.WriteLine("Response received " + ToDos.Count);
+
+    }
+
+    public class ToDo
+    {
+        public string title { get; set; }
+    }
+}
+
+@*https://learn-blazor.com/architecture/rest-api/*@
