@@ -27,8 +27,64 @@
 <br />
 
 <p>
-    <img src="/image/DependencyInjection.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+    <img src="/image/DependencyInjectionHttp.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
 </p>
+
+<br />
+
+<p>
+    Configure services for the app's service collection in the Main method of Program.cs.
+    In the following example, the MyDependency implementation is registered for IMyDependency:
+</p>
+
+<div class="col-sm-12 col-lg-12 col-md-12">
+    <img src="/image/DIAppServiceCollection.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+
+</div>
+
+<br />
+
+<div class="col-sm-12 col-lg-12 col-md-12">
+
+    <h5>
+        Request a service in a component
+    </h5>
+
+    <p>
+        After services are added to the service collection, inject the services into the components using the @@inject Razor directive. @@inject has two parameters:
+
+        <ul>
+            <li>
+                Type – The type of the service to inject.
+            </li>
+            <li>
+                Property – The name of the property receiving the injected app service. The property doesn't require manual creation. The compiler creates the property.
+            </li>
+        </ul>
+
+    </p>
+
+   
+
+</div>
+
+<br />
+
+<div class="col-sm-12 col-lg-12 col-md-12">
+      <p>
+        Use multiple @@inject statements to inject different services.
+        <br />
+        The following example shows how to use @@inject. The service implementing Services.IDataAccess is injected into the component's property DataRepository. Note how the code is only using the IDataAccess abstraction:
+    </p>
+
+</div>
+
+<div class="col-sm-12 col-lg-12 col-md-12">
+    <img src="/image/InjectServiceInComponent.png" alt="Blazor WebAssembly runs .NET code in the browser with WebAssembly." data-linktype="relative-path">
+
+</div>
+
+<br />
 
 
 <div>

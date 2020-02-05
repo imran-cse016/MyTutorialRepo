@@ -44,36 +44,75 @@
     </div>
 
 
-    @*<div class="col-sm-12 col-lg-12 col-md-12">
-
-            <p>
-                Some parts of the pages remain the same throughout the application, such as menus, headers, footers, and so on. However, we cannot write code for the common part in all the pages.
-                It becomes hard to maintain and probably inconsistent over time.
-                Therefore, to solve this issue in Blazor, we use layouts
-            </p>
-
-            <p>
-                Technically, a layout is just another component.To turn a component into a layout, the component:
-            </p>
-
-            <ul>
-                <li>
-                    The layout component inherits from LayoutComponentBase.
-                </li>
-                <li>
-                    It adds a property @@Body to the component which contains the content to be rendered inside the layout.
-                </li>
-            </ul>
-
-
-        </div>*@
-
     <div class="col-sm-12 col-lg-12 col-md-12">
         <p>
             <img src="/image/BlazorLayout.png" role="presentation" class="img-fluid img-fluid-center img-bordered" style="border:thick" />
         </p>
     </div>
 
-    Continueee
+    <br />
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+
+        <h5>
+            Default layout
+        </h5>
+
+
+        <p>
+            Specify the default app layout in the Router component in the app's App.razor file.
+            The following Router component, which is provided by the balzor framework, sets the default layout to the MainLayout component:
+        </p>
+
+    </div>
+
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <p>
+            <img src="/image/BlazorDefaultLayout.png" role="presentation" class="img-fluid img-fluid-center img-bordered" style="border:thick" />
+        </p>
+    </div>
+
+    <br />
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+
+        <h5>
+            Specify a layout in a component
+        </h5>
+
+        <p>
+            Use the Razor directive @@layout to apply a layout to a component.
+            Specifying the layout directly in a component overrides a default layout set in the router.
+            The content of the following MasterList component is inserted into the MasterLayout at the position of @@Body:
+        </p>
+
+    </div>
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <p>
+            <img src="/image/ComponentLevelLayout.png" role="presentation" class="img-fluid img-fluid-center img-bordered" style="border:thick" />
+        </p>
+    </div>
+
+    <hr />
+
+    <h5>Summary</h5>
+
+    <div class="alert alert-secondary mt-4" role="alert">
+
+        <p>
+            <ul style="list-style-type: none;">
+                <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Layouts are technically another Blazor component.</li>
+                <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> The layout component must inherit from BlazorLayoutComponent.</li>
+                <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> The layout component uses the Body property to specify where the body content should be rendered.</li>
+                <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> We can override the layout for Blazor component by using @@layout directive.</li>
+                <li> <span class="oi oi-pencil mr-2" aria-hidden="true"></span> Layout page helps us to reduce duplicate code in our application and helps us to make the look and feel consistent throughout the application.</li>
+            </ul>
+        </p>
+
+    </div>
+
+
 
 </div>
